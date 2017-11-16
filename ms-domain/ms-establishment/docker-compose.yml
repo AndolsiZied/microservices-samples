@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:3.4.10
+    ports:
+      - "27017:27017"
+    volumes:
+      - /mnt/data/mongo:/data/db
+
+  establishmentservice:
+    image: zandolsi/ms-examples:basic-crud
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo

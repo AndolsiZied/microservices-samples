@@ -13,7 +13,7 @@
     <artifactId>ms-domain</artifactId>
     <packaging>pom</packaging>
 
-    <name>Microservices Demo :: domain</name>
+    <name>Microservices Demo :: Domain</name>
 
     <modules>
         <module>ms-establishment</module>

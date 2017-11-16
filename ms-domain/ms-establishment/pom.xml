@@ -13,7 +13,30 @@
     <artifactId>ms-establishment</artifactId>
     <packaging>pom</packaging>
 
+    <properties>
+        <lombok.version>1.16.18</lombok.version>
+        <lombok.maven.version>1.16.18.1</lombok.maven.version>
+        <mapstruct.version>1.2.0.Final</mapstruct.version>
+    </properties>
+
     <name>Microservices Demo :: Establishment Services</name>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-jdk8</artifactId>
+                <version>${mapstruct.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <modules>
         <module>establishment-backend</module>

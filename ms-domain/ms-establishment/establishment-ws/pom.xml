@@ -15,8 +15,8 @@
     <name>Microservices Demo :: Establishment Services REST</name>
 
     <properties>
-        <docker.image.name>zandolsi/ms-examples</docker.image.name>
-        <docker.image.tag>basic-crud</docker.image.tag>
+        <docker.image.name>zandolsi/ms-establishment</docker.image.name>
+        <docker.image.tag>external-config</docker.image.tag>
     </properties>
 
     <dependencies>
@@ -36,6 +36,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- spring cloud dependencies -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
 
         <!-- api dependencies -->

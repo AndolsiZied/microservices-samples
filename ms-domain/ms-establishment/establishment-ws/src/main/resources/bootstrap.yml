@@ -1,3 +1,9 @@
 spring:
   application:
-    name : establishment-services
+    name: establishment-services
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      uri: http://configserver:9090

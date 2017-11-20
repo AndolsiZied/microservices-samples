@@ -2,5 +2,5 @@ spring:
   data:
     mongodb:
       host: mongo
-      username: ms-user
-      paswword: ms-password
+      username: ms-user-int
+      paswword: ms-password-int

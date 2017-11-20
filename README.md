@@ -25,6 +25,7 @@ The project is organized as follows:
 
 
 ## Versions
-1. V0-configuration-server:
+1. V0-configuration-server-file-systeme:
 
 This version contains a sample crud webapp that allows you to make reservations in restaurants.
+Spring Cloud configuration server with file systeme backend is used to centralize configuration files. 

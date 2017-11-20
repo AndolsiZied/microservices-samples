@@ -3,8 +3,8 @@ services:
   mongo:
     image: mongo:3.4.10
     environment:
-      - MONGO_INITDB_ROOT_USERNAME:ms-username
-      - MONGO_INITDB_ROOT_PASSWORD:ms-password
+      - MONGO_INITDB_ROOT_USERNAME:ms-username-int
+      - MONGO_INITDB_ROOT_PASSWORD:ms-password-int
     ports:
       - "27017:27017"
     volumes:

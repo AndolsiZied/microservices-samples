@@ -1,10 +1,10 @@
 server:
   port: 9090
 spring:
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          searchLocations: classpath:config/establishment-services
+        encrypt.enabled: false
+        git:
+          uri: https://github.com/AndolsiZied/configuration-repo/
+          searchPaths: establishment-services

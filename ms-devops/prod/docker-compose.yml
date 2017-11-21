@@ -11,7 +11,7 @@ services:
       - /mnt/data/mongo:/data/db
     command: mongod
   configserver:
-    image: zandolsi/ms-config-server:fs-config
+    image: zandolsi/ms-config-server:git-config
     ports:
       - "9090:9090"
 

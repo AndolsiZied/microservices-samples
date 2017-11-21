@@ -1,6 +1,0 @@
-spring:
-  data:
-    mongodb:
-      host: mongo
-      username: ms-user-prod
-      paswword: ms-password-prod

@@ -8,3 +8,4 @@ spring:
         git:
           uri: https://github.com/AndolsiZied/configuration-repo/
           searchPaths: establishment-services
+          timeout: 30

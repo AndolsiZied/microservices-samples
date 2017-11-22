@@ -1,5 +1,6 @@
 package com.zandolsi.examples.ms.establishment.controller;
 
+import com.zandolsi.examples.ms.establishment.configuration.WebConfiguration;
 import com.zandolsi.examples.ms.establishment.dto.request.EstablishmentRequestDto;
 import com.zandolsi.examples.ms.establishment.dto.response.EstablishmentResponseDto;
 import com.zandolsi.examples.ms.establishment.mapper.EstablishmentRequestMapper;
@@ -24,6 +25,8 @@ public class EstablishmentController {
     private EstablishmentResponseMapper establishmentResponseMapper;
     @Autowired
     private EstablishmentRequestMapper establishmentRequestMapper;
+    @Autowired
+    private WebConfiguration webConfiguration;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<EstablishmentResponseDto> get(@PathVariable String id) {
@@ -40,5 +43,10 @@ public class EstablishmentController {
         Establishment createdEstablishment = establishmentService.save(establishmentRequestMapper.to(establishment));
         URI newResourceURI = new URI("/api/establishments" + createdEstablishment.getId());
         return ResponseEntity.created(newResourceURI).body(establishmentResponseMapper.to(createdEstablishment));
+    }
+
+    @RequestMapping("/message")
+    public String message() {
+        return webConfiguration.message();
     }
 }

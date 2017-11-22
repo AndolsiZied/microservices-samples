@@ -16,7 +16,7 @@
 
     <properties>
         <docker.image.name>zandolsi/ms-establishment</docker.image.name>
-        <docker.image.tag>external-config</docker.image.tag>
+        <docker.image.tag>external-config-refresh</docker.image.tag>
     </properties>
 
     <dependencies>
@@ -37,7 +37,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
+        
         <!-- spring cloud dependencies -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

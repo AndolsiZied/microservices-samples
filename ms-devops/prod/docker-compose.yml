@@ -16,7 +16,9 @@ services:
       - "9090:9090"
 
   establishmentservice:
-    image: zandolsi/ms-establishment:external-config
+    image: zandolsi/ms-establishment:external-config-refresh
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
     ports:
       - "8080:8080"
     depends_on:

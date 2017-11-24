@@ -11,14 +11,17 @@ services:
       - /mnt/data/mongo:/data/db
     command: mongod
   configserver:
-    image: zandolsi/ms-config-server:git-config
+    image: zandolsi/ms-config-server:git-config-encrypted
+    environment:
+      ENCRYPT_KEY: "1bb7d069-4c5c-483f-a1dd-423cce61fb9e"
     ports:
       - "9090:9090"
 
   establishmentservice:
-    image: zandolsi/ms-establishment:external-config-refresh
+    image: zandolsi/ms-establishment:external-config-refresh-encrypted
     environment:
       SPRING_PROFILES_ACTIVE: default
+      ENCRYPT_KEY: "1bb7d069-4c5c-483f-a1dd-423cce61fb9e"
     ports:
       - "8080:8080"
     depends_on:

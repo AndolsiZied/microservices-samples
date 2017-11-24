@@ -15,7 +15,7 @@
 
     <properties>
         <docker.image.name>zandolsi/ms-config-server</docker.image.name>
-        <docker.image.tag>git-config</docker.image.tag>
+        <docker.image.tag>git-config-encrypted</docker.image.tag>
     </properties>
 
 

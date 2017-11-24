@@ -38,4 +38,12 @@ The difference with the previous version is at the server configuration. In fact
 3. V0-configuration-server-git-refresh: 
  
 In this version, a refresh scope was added to update some beans when related properties changed. To see new values, à
- ` curl -d {} service-host:8080/refresh` must be invoked.
+ `curl -d {} service-host:8080/refresh` must be invoked.
+ 
+4. V0-configuration-server-git-encrypt: 
+ 
+In this tag, I  use symmetric cryptography to encrypt property values in a symmetric way. For this, I define an environment variable 
+`ENCRYPT_KEY` in server-isde (configuration server) and client-side (services server).
+
+To get encrypted property, you can call encrypt configuration serevr endpoint : 
+`export ENCRYPTED='curl config-server/encrypt -d ms-password'`

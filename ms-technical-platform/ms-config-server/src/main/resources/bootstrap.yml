@@ -1,3 +1,11 @@
 spring:
   application:
     name : configuration-server
+  cloud:
+    config:
+      server:
+        encrypt.enabled: false
+        git:
+          uri: https://github.com/AndolsiZied/configuration-repo/
+          searchPaths: establishment-services
+          timeout: 30

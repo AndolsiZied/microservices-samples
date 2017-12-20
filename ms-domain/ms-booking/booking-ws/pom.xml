@@ -6,16 +6,16 @@
 
     <parent>
         <groupId>com.zandolsi.examples.ms</groupId>
-        <artifactId>ms-establishment</artifactId>
+        <artifactId>ms-booking</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>establishment-ws</artifactId>
+    <artifactId>booking-ws</artifactId>
 
-    <name>Microservices Demo :: Establishment Services REST</name>
+    <name>Microservices Demo :: Booking Services REST</name>
 
     <properties>
-        <docker.image.name>zandolsi/ms-establishment</docker.image.name>
+        <docker.image.name>zandolsi/ms-booking</docker.image.name>
         <docker.image.tag>external-config-discovery</docker.image.tag>
     </properties>
 
@@ -23,7 +23,7 @@
         <!-- internal dependencies -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>establishment-backend</artifactId>
+            <artifactId>booking-backend</artifactId>
             <version>${project.version}</version>
         </dependency>
 

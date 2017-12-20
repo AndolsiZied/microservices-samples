@@ -3,19 +3,25 @@ services:
   mongo:
     image: mongo:3.4.10
     environment:
-      - MONGO_INITDB_ROOT_USERNAME:ms-username-prod
-      - MONGO_INITDB_ROOT_PASSWORD:ms-password-prod
+      - MONGO_INITDB_ROOT_USERNAME=ms-username-prod
+      - MONGO_INITDB_ROOT_PASSWORD=ms-password-prod
     ports:
       - "27017:27017"
     volumes:
       - /mnt/data/mongo:/data/db
     command: mongod
+
   configserver:
     image: zandolsi/ms-config-server:git-config-encrypted
     environment:
       ENCRYPT_KEY: "1bb7d069-4c5c-483f-a1dd-423cce61fb9e"
     ports:
       - "9090:9090"
+
+  discoveryserver:
+    image: zandolsi/ms-discovery-server:eureka
+    ports:
+      - "9191:9191"
 
   establishmentservice:
     image: zandolsi/ms-establishment:external-config-refresh-encrypted
@@ -27,3 +33,27 @@ services:
     depends_on:
       - mongo
       - configserver
+      - discoveryserver
+
+  userservice:
+    image: zandolsi/ms-user:external-config-discovery
+    environment:
+      SPRING_PROFILES_ACTIVE: int
+      ENCRYPT_KEY: "1bb7d069-4c5c-483f-a1dd-423cce61fb9e"
+    ports:
+      - "8181:8080"
+    depends_on:
+      - mongo
+      - configserver
+      - discoveryserver
+  bookingservice:
+    image: zandolsi/ms-booking:external-config-discovery
+    environment:
+      SPRING_PROFILES_ACTIVE: int
+      ENCRYPT_KEY: "1bb7d069-4c5c-483f-a1dd-423cce61fb9e"
+    ports:
+      - "8282:8080"
+    depends_on:
+      - mongo
+      - configserver
+      - discoveryserver

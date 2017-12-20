@@ -1,4 +1,4 @@
-package com.zandolsi.examples.ms.establishment;
+package com.zandolsi.examples.ms.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

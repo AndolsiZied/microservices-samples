@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: user-services
+  profiles:
+    active:
+      default
+endpoints:
+  sensitive: false

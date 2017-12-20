@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: booking-services
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      uri: http://configserver:9090
+endpoints:
+  sensitive: false

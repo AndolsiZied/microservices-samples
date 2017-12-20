@@ -17,6 +17,8 @@
 
     <modules>
         <module>ms-establishment</module>
+        <module>ms-user</module>
+        <module>ms-booking</module>
     </modules>
 
     <properties>

@@ -7,5 +7,5 @@ spring:
         encrypt.enabled: false
         git:
           uri: https://github.com/AndolsiZied/configuration-repo/
-          searchPaths: establishment-services
+          searchPaths: establishment-services,user-services,booking-services
           timeout: 30

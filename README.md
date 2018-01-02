@@ -43,7 +43,26 @@ In this version, a refresh scope was added to update some beans when related pro
 4. V0-configuration-server-git-encrypt: 
  
 In this tag, I  use symmetric cryptography to encrypt property values in a symmetric way. For this, I define an environment variable 
-`ENCRYPT_KEY` in server-isde (configuration server) and client-side (services server).
+`ENCRYPT_KEY` in server-side (configuration server) and client-side (services server).
 
 To get encrypted property, you can call encrypt configuration serevr endpoint : 
 `export ENCRYPTED='curl config-server/encrypt -d ms-password'`
+
+5. V1-discovery-server-discovery-client: 
+The purpose of this release is to show how a micro-service looks for another micro service using the discovery client.
+
+The use case is simple: Save a reservation and update the reservation list of the establishment.
+
+POST /api/establishments/
+
+`{"name":"Establishment test", "stars":5, "tables": [{"code":"1", "places":2, "bookings":[]}]}`
+
+POST /api/bookings/
+
+`{
+ 	"bookingTime": "2017-12-29T20:00:00",
+ 	"reservationFor":"5a4b5dd530c49e00065c6f2a",
+ 	"reservationBy":"test-user",
+ 	"table":"1"
+ }`
+

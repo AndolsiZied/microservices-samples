@@ -49,6 +49,7 @@ To get encrypted property, you can call encrypt configuration serevr endpoint :
 `export ENCRYPTED='curl config-server/encrypt -d ms-password'`
 
 5. V1-discovery-server-discovery-client: 
+
 The purpose of this release is to show how a micro-service looks for another micro service using the discovery client.
 
 The use case is simple: Save a reservation and update the reservation list of the establishment.
@@ -65,4 +66,8 @@ POST /api/bookings/
  	"reservationBy":"test-user",
  	"table":"1"
  }`
+ 
+ 6. V1-discovery-server-ribbon:
+ This time, rather than using the url of the service we want to call, we're going to use instance ID in the URL with 
+ `Ribbon-backed RestTempalte`.  
 

@@ -20,17 +20,11 @@ public class EstablishmentClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(EstablishmentClient.class);
 
     @Autowired
-    private DiscoveryClient discoveryClient;
+    private RestTemplate restTemplate;
 
     public void patchEstablishment(String establishmentId, String body) {
-        RestTemplate restTemplate = new RestTemplate(new HttpComponentsClientHttpRequestFactory());
-        List<ServiceInstance> instances = discoveryClient.getInstances("establishment-services");
-        if (instances.size() == 0) {
-            throw new RuntimeException("Cannot update establishment becuase no instance was found.");
-        }
-        String serviceUri = String.format("%s/api/establishments/%s", instances.get(0).getUri().toString(), establishmentId);
+        String serviceUri = String.format("http://establishment-services/api/establishments/%s", establishmentId);
         LOGGER.debug("Calling establishment service [{}]...", serviceUri);
-
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(APPLICATION_JSON);

@@ -9,9 +9,9 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class EstablishmentRequestDto {
+public class TableRequestDto {
 
-    private String name;
-    private Integer stars;
-    private List<TableRequestDto> tables;
+    private String code;
+    private Integer places;
+    private List<String> bookings;
 }

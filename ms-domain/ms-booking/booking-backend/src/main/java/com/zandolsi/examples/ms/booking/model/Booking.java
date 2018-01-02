@@ -16,4 +16,5 @@ public class Booking {
     private LocalDateTime bookingTime;
     private String reservationFor;
     private String reservationBy;
+    private String table;
 }

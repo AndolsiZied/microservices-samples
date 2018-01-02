@@ -6,3 +6,8 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://discoveryserver:9191/eureka/
+
+spring:
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false

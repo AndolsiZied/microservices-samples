@@ -14,6 +14,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Optional;
 
+import static java.util.Objects.nonNull;
+
 @RestController
 @RequestMapping("/api/bookings")
 public class BookingController {
@@ -27,10 +29,9 @@ public class BookingController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<BookingResponseDto> get(@PathVariable String id) {
-        Optional<BookingResponseDto> booking = Optional.ofNullable(bookingResponseMapper.to(bookingService
-                .get(id)));
-        if (booking.isPresent()) {
-            return ResponseEntity.ok(booking.get());
+        BookingResponseDto booking = bookingResponseMapper.to(bookingService.get(id));
+        if (nonNull(booking)) {
+            return ResponseEntity.ok(booking);
         }
         return ResponseEntity.notFound().build();
     }
@@ -38,7 +39,7 @@ public class BookingController {
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<BookingResponseDto> save(@RequestBody BookingRequestDto booking) throws URISyntaxException {
         Booking createdBooking = bookingService.save(bookingRequestMapper.to(booking));
-        URI newResourceURI = new URI("/api/bookings" + createdBooking.getId());
+        URI newResourceURI = new URI("/api/bookings/" + createdBooking.getId());
         return ResponseEntity.created(newResourceURI).body(bookingResponseMapper.to(createdBooking));
     }
 }

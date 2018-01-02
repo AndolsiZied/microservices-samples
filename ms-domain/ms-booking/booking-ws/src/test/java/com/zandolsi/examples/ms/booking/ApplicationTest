@@ -1,0 +1,11 @@
+package com.zandolsi.examples.ms.booking;
+
+import org.junit.Test;
+
+public class ApplicationTest {
+
+    @Test
+    public void givenDefaultConfiguration_whenCallMainClass_thenApplicationStarted() {
+        Application.main(new String[] {});
+    }
+}

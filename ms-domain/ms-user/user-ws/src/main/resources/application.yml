@@ -5,4 +5,4 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://discovery-server:9191/eureka/
+      defaultZone: http://discoveryserver:9191/eureka/

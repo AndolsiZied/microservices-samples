@@ -1,7 +1,7 @@
 version: '3'
 services:
   mongo:
-    image: mongo:3.4.10
+    build: ./tools/mongo-db
     environment:
       - MONGO_INITDB_ROOT_USERNAME=ms-username-prod
       - MONGO_INITDB_ROOT_PASSWORD=ms-password-prod
@@ -9,7 +9,6 @@ services:
       - "27017:27017"
     volumes:
       - /mnt/data/mongo:/data/db
-    command: mongod
 
   configserver:
     image: zandolsi/ms-config-server:git-config-encrypted

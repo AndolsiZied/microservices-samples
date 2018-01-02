@@ -4,6 +4,6 @@ import com.zandolsi.examples.ms.establishment.dto.request.EstablishmentRequestDt
 import com.zandolsi.examples.ms.establishment.model.Establishment;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {TableRequestMapper.class})
 public interface EstablishmentRequestMapper extends GenericMapper<EstablishmentRequestDto, Establishment> {
 }

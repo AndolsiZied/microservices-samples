@@ -38,7 +38,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<UserResponseDto> save(@RequestBody UserRequestDto user) throws URISyntaxException {
         User createdUser = userService.save(userRequestMapper.to(user));
-        URI newResourceURI = new URI("/api/users" + createdUser.getEmail());
+        URI newResourceURI = new URI("/api/users/" + createdUser.getEmail());
         return ResponseEntity.created(newResourceURI).body(userResponseMapper.to(createdUser));
     }
 }

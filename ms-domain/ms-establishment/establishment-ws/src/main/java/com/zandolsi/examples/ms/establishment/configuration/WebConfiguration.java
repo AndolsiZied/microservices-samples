@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @RefreshScope
 public class WebConfiguration {
-    @Value("${welcome.message}")
+    @Value("${welcome.message: default message}")
     private String message;
 
     public String message() {

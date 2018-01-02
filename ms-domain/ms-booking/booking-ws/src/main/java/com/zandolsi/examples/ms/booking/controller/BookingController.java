@@ -37,7 +37,7 @@ public class BookingController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
-    public ResponseEntity<BookingResponseDto> save(@RequestBody BookingRequestDto booking) throws URISyntaxException {
+    public ResponseEntity<BookingResponseDto> save(@RequestBody BookingRequestDto booking) throws Exception {
         Booking createdBooking = bookingService.save(bookingRequestMapper.to(booking));
         URI newResourceURI = new URI("/api/bookings/" + createdBooking.getId());
         return ResponseEntity.created(newResourceURI).body(bookingResponseMapper.to(createdBooking));

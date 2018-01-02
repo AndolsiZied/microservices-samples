@@ -9,3 +9,13 @@ spring:
       uri: http://configserver:9090
 endpoints:
   sensitive: false
+
+hystrix:
+  metrics:
+    enabled: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000

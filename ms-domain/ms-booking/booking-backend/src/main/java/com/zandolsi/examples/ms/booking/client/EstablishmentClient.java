@@ -1,44 +1,17 @@
 package com.zandolsi.examples.ms.booking.client;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.http.*;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+import static org.springframework.web.bind.annotation.RequestMethod.PATCH;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON;
+@FeignClient("establishment-services")
+public interface EstablishmentClient {
 
-@Component
-public class EstablishmentClient {
+    @RequestMapping(method = PATCH, consumes = "application/json", value = "/api/establishments/{establishmentId}")
+    void patchEstablishment(@PathVariable("establishmentId") String establishmentId, @RequestBody JsonNode body);
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EstablishmentClient.class);
-
-    @Autowired
-    private RestTemplate restTemplate;
-
-    public void patchEstablishment(String establishmentId, String body) {
-        String serviceUri = String.format("http://establishment-services/api/establishments/%s", establishmentId);
-        LOGGER.debug("Calling establishment service [{}]...", serviceUri);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(APPLICATION_JSON);
-
-        HttpEntity entity = new HttpEntity<>(body, headers);
-
-        ResponseEntity<Void> restExchange =
-                restTemplate.exchange(
-                        serviceUri,
-                        HttpMethod.PATCH,
-                        entity, Void.class);
-        if (!restExchange.getStatusCode().equals(HttpStatus.NO_CONTENT)) {
-            LOGGER.error("Unexpected response  : " + restExchange.getBody());
-            throw new RuntimeException("Unexpected response was received : " + restExchange.getBody());
-        }
-    }
 }
